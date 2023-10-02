@@ -6,8 +6,8 @@ ssh workshop@...
 ```
 2. Download `neutrond`:
 ``` bash
-wget https://github.com/neutron-org/neutron/releases/download/v1.0.4/neutrond-linux-amd64 -O /bin/neutrond
-chmod +x /bin/neutrond
+wget https://github.com/neutron-org/neutron/releases/download/v1.0.4/neutrond-linux-amd64 -O ~/neutrond
+chmod +x ~/neutrond
 ```
 3. Add the key for testing:
 ``` bash
