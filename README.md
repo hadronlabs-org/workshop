@@ -27,7 +27,7 @@ make build-mainnet-fork-image
 ``` bash
 mkdir snapshot
 cd snapshot
-wget wget http://91.201.113.185:3000/snapshot.json
+wget http://91.201.113.185:3000/snapshot.json
 cd ..
 ```
 7. Run the mainnet fork (will take some time):
