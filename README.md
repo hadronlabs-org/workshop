@@ -12,7 +12,7 @@ chmod +x ~/neutrond
 3. Add the key for testing:
 ``` bash
 MNEMONIC="leopard exclude more together bottom face flight elder trash mushroom hidden win demand fog bubble mosquito capital list dress dwarf erosion puzzle lobster clap"
-echo "$MNEMONIC" | neutrond keys add k --recover --keyring-backend=test
+echo "$MNEMONIC" | ./neutrond keys add k --recover --keyring-backend=test
 ```
 4. Clone `rehearsal` repo:
 ``` bash
