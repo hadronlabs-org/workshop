@@ -36,11 +36,11 @@ make start-mainnet-fork
 ```
 8. Check the balance of test account:
 ``` bash
-neutrond q bank balances neutron1kyn3jx88wvnm3mhnwpuue29alhsatwzrpkwhu6
+./neutrond q bank balances neutron1kyn3jx88wvnm3mhnwpuue29alhsatwzrpkwhu6
 ```
 9. Check the voting power of test account (should be 0):
 ``` bash
-neutrond query wasm contract-state smart neutron1suhgf5svhu4usrurvxzlgn54ksxmn8gljarjtxqnapv8kjnp4nrstdxvff '{
+./neutrond query wasm contract-state smart neutron1suhgf5svhu4usrurvxzlgn54ksxmn8gljarjtxqnapv8kjnp4nrstdxvff '{
   "voting_power_at_height": {
     "address": "neutron1kyn3jx88wvnm3mhnwpuue29alhsatwzrpkwhu6"
   }
@@ -48,13 +48,13 @@ neutrond query wasm contract-state smart neutron1suhgf5svhu4usrurvxzlgn54ksxmn8g
 ```
 10. Bond some NTRN to get voting power:
 ``` bash
-neutrond tx wasm execute neutron1qeyjez6a9dwlghf9d6cy44fxmsajztw257586akk6xn6k88x0gus5djz4e '{
+./neutrond tx wasm execute neutron1qeyjez6a9dwlghf9d6cy44fxmsajztw257586akk6xn6k88x0gus5djz4e '{
   "bond": {}
 }' --amount 1000000untrn --from k --keyring-backend=test --chain-id neutron-1 
 ```
 11. Check the voting power of test account (should be 1000000):
 ``` bash
-neutrond query wasm contract-state smart neutron1suhgf5svhu4usrurvxzlgn54ksxmn8gljarjtxqnapv8kjnp4nrstdxvff '{
+./neutrond query wasm contract-state smart neutron1suhgf5svhu4usrurvxzlgn54ksxmn8gljarjtxqnapv8kjnp4nrstdxvff '{
   "voting_power_at_height": {
     "address": "neutron1kyn3jx88wvnm3mhnwpuue29alhsatwzrpkwhu6"
   }
@@ -62,7 +62,7 @@ neutrond query wasm contract-state smart neutron1suhgf5svhu4usrurvxzlgn54ksxmn8g
 ```
 12. Create a proposal:
 ``` bash
-neutrond tx wasm execute neutron1hulx7cgvpfcvg83wk5h96sedqgn72n026w6nl47uht554xhvj9nsgs8v0z '{
+./neutrond tx wasm execute neutron1hulx7cgvpfcvg83wk5h96sedqgn72n026w6nl47uht554xhvj9nsgs8v0z '{
   "propose": {
     "msg": {
       "propose": {
@@ -121,7 +121,7 @@ neutrond tx wasm execute neutron1hulx7cgvpfcvg83wk5h96sedqgn72n026w6nl47uht554xh
 ```
 13. Query the proposal:
 ``` bash
-neutrond query wasm contract-state smart neutron1436kxs0w2es6xlqpp9rd35e3d0cjnw4sv8j3a7483sgks29jqwgshlt6zh '{
+./neutrond query wasm contract-state smart neutron1436kxs0w2es6xlqpp9rd35e3d0cjnw4sv8j3a7483sgks29jqwgshlt6zh '{
   "proposal": {
     "proposal_id": 15
   }
@@ -129,7 +129,7 @@ neutrond query wasm contract-state smart neutron1436kxs0w2es6xlqpp9rd35e3d0cjnw4
 ```
 14. Vote for the proposal:
 ``` bash
-neutrond tx wasm execute neutron1436kxs0w2es6xlqpp9rd35e3d0cjnw4sv8j3a7483sgks29jqwgshlt6zh '{
+./neutrond tx wasm execute neutron1436kxs0w2es6xlqpp9rd35e3d0cjnw4sv8j3a7483sgks29jqwgshlt6zh '{
   "vote": {
     "proposal_id": 15,
     "vote": "yes"
@@ -138,13 +138,13 @@ neutrond tx wasm execute neutron1436kxs0w2es6xlqpp9rd35e3d0cjnw4sv8j3a7483sgks29
 ```
 15. Check the DAO SubDAOs list (should have 1 item):
 ``` bash
-neutrond query wasm contract-state smart neutron1suhgf5svhu4usrurvxzlgn54ksxmn8gljarjtxqnapv8kjnp4nrstdxvff '{
+./neutrond query wasm contract-state smart neutron1suhgf5svhu4usrurvxzlgn54ksxmn8gljarjtxqnapv8kjnp4nrstdxvff '{
   "list_sub_daos": {}
 }' -o json | jq
 ```
 16. Execute the proposal:
 ``` bash
-neutrond tx wasm execute neutron1436kxs0w2es6xlqpp9rd35e3d0cjnw4sv8j3a7483sgks29jqwgshlt6zh '{
+./neutrond tx wasm execute neutron1436kxs0w2es6xlqpp9rd35e3d0cjnw4sv8j3a7483sgks29jqwgshlt6zh '{
     "execute": {
         "proposal_id": 15
     }
@@ -152,7 +152,7 @@ neutrond tx wasm execute neutron1436kxs0w2es6xlqpp9rd35e3d0cjnw4sv8j3a7483sgks29
 ```
 17. Check the DAO SubDAOs list (should have 2 items):
 ``` bash
-neutrond query wasm contract-state smart neutron1suhgf5svhu4usrurvxzlgn54ksxmn8gljarjtxqnapv8kjnp4nrstdxvff '{
+./neutrond query wasm contract-state smart neutron1suhgf5svhu4usrurvxzlgn54ksxmn8gljarjtxqnapv8kjnp4nrstdxvff '{
   "list_sub_daos": {}
 }' -o json | jq
 ```
